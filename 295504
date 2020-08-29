@@ -1,0 +1,102 @@
+import random
+import time
+import sys
+sys.setrecursionlimit(999999)
+print ('''
+This Game Is Modified by TECH_TEJAS
+''')
+player_name= input('Enter your name: ')
+Player_name=player_name.capitalize()
+count_zero= 0
+count_one= 0
+player_score= 0
+computer_score= 0
+
+def prediction():
+    if count_zero>count_one:
+        predict= 0
+    elif count_zero<count_one:
+        predict= 1
+    else:
+        predict= random.randint(0,1)
+    return predict
+
+def update_count(player_input):
+    global count_zero, count_one
+    if player_input == 0:
+        count_zero= count_zero + 1
+    else:
+         count_one=count_one + 1
+
+def update_score(predict,player_input):
+    global player_score, computer_score
+    if predict == player_input:
+        computer_score= computer_score +1
+        print('Computer score: ', computer_score)
+    else:
+         player_score= player_score+1
+         print(f'{Player_name} score:',player_score)
+def tili(mg,tme):
+    tme=float(tme)
+    for i in mg:
+        print(i,end='')
+        time.sleep(tme)
+def gameplay():
+    valid_entries=['0','1']
+    while True:
+        predict= prediction()
+        try:
+            player_input= int(input('Enter either 0 or 1: '))
+        except:
+            print ("!!!You have given Invalid Input!!!")
+            return gameplay()
+        if player_input==0:
+            pass
+        elif player_input==1:
+            pass
+        else:
+            print ("!!!You have given Invalid Input!!!")
+            return gameplay()
+        update_count(player_input)
+        update_score(predict,player_input)
+
+        if player_score == 10:
+            tili(f'!!!{Player_name} Won!!!',0.5)
+            break
+        elif  computer_score == 10:
+            tili('!!!Computer Won!!!',0.5)
+            break
+gameplay()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
