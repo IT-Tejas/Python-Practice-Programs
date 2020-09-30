@@ -1,3 +1,4 @@
+
 import re
 #Greet
 print('''
@@ -114,6 +115,7 @@ def play():
 		player_1()
 		decider()
 		player_2()
+# For restarting the game if user wish to play again 
 def restart():
 	inpusr=input(" Enter E To Exit: ")
 	inpusr=inpusr.upper()
